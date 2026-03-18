@@ -1,0 +1,511 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    height: 100vh;
+    background-color: #050733;
+}
+
+a{
+    color: inherit;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.Leftside{
+    width: 18%;
+    height: 100%;
+    background-color: #0D2242;
+    justify-content: center;
+    padding-top: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.Name-web{
+    color: #ffff;
+    width: 100%;
+    
+    align-items: center;
+    background-color: none;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.Name-web p {
+    font-family: "Raleway", sans-serif;
+    font-weight: 800;
+    font-size: 25px;
+    flex-wrap: wrap;
+}
+
+.Name-web span{
+    font-size: 15px;
+}
+
+.Total-Spend{
+    display: flex;
+    background-color: white;
+    color: black;
+    text-align: center;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 50%;
+    border: 5px solid #2A528A;
+    height: 180px;
+    width: 180px;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.top-left{
+    border-bottom: 1px solid white ;
+    width: 90%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    color: white;
+    padding: 10px 10px;
+    gap: 10px;
+}
+
+.Dashboard, .database{
+    font-size: 20px;
+    background-color: #1E3B6E;
+    border: 1px solid #4177B6;
+    border-radius: 10px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.database-index, .Dashboard-table{
+    font-size: 20px;
+    border-radius: 10px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px; 
+}
+
+.Rightside{
+    color: white;
+    width: 82%;
+    height: 100vh;
+    padding: 50px  30px;
+}
+
+.Rightside-index{
+    color: white;
+    width: 82%;
+    height: 100vh;
+    padding: 50px  30px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.Tittle-section{
+    font-size: 30px;
+    font-weight: 500;
+}
+
+.grafic-finance{
+    width: 100%;
+    height: 50%;
+    background-color: #101F3D;
+    border: 1px solid #243359;
+    border-radius: 10px ;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 10px ;
+    gap: 20px;
+}
+
+.grafic-Pendapatan, .grafic-pengeluaran{
+    height: 98%;
+    background-color: #0A1C3C;
+    border: 1px solid #243359;
+    border-radius: 10px;
+    padding: 0 10px;
+    display: flex;
+    justify-content: center;
+
+    
+}
+
+.chart-finance{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 50%;
+    gap: 10px;
+    padding: 0px 0px;
+}
+
+.analytic-text{
+    font-size: 25px;
+    font-weight: 500;
+}
+
+.chart-pie-wrapper{
+    width: 100%;
+    height: 350px;   /* atur tinggi pie chart di sini */
+    background-color: #101F3D;
+    border: 1px solid #243359;
+    border-radius: 10px;
+    padding: 15px 35%;
+    box-sizing: border-box;
+}
+
+.chart-pie{
+    width: 30%;
+    height: 100% !important;
+    background-color: #0A1C3C;
+    border: 1px solid #243359;
+    border-radius: 10px;
+    padding: 10px 0px;
+}
+
+.nav-table{
+    border: 1px solid #072842;
+    display: flex;
+    padding: 15px 10px;
+    justify-content: space-around;
+    align-items: center;
+    gap: 20px;
+    border-radius: 10px;
+    margin-top: 30px;
+}
+
+.all-transaksi{
+    width: 100%;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    background-color: #1E3B6E;
+    font-weight: 500;
+    font-size: 17px;
+}
+ 
+.pengeluaran-tranksaksi, 
+.pemasukan-transaksi{
+    width: 100%;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    background-color: #111C4A;
+    font-weight: 500;
+    font-size: 17px;
+}
+
+.Button-Help{
+    
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.Filter-button{
+    background-color: #007BFF;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    color: white;
+    margin-top: 20px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: none;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.overlay-filter{
+    position: fixed;
+    background-color: #064F76;
+    display: flex;
+    display: none;
+    top: 268px;   /* turun ke bawah button */
+    right: 30px; 
+    font-size: 15px;
+    flex-direction: column;
+    gap: 20px;
+    padding: 10px 0;
+    width: fit-content;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-left-radius: 7px;
+    border-bottom-right-radius: 7px;
+}
+
+.box-filter{
+    padding: 10px 10px;
+}
+
+.box-filter:hover{
+    background-color: #03314E;
+}
+
+.button-add button{
+    background-color: #007BFF;
+    color: white;
+    margin-top: 20px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: none;
+    font-size: 15px;
+    font-weight: 600;
+
+}
+
+.container-table{
+    margin-top: 20px;
+    max-height: 70%;
+    height: 70%;
+    background-color: #101F3D;
+    border: 1px solid #243359;
+    border-radius: 10px;
+    padding: 10px 20px;
+}
+
+.scroll-table{
+    overflow-y: scroll;
+    height: 100%;
+    background-color: #101F3D;
+}
+
+.table-data table{
+    width: 100%;
+}
+
+.table-dataincome ,
+.table-dataexpend, 
+.table-high,
+.table-low,
+.table-nowhigh,
+.table-nowlow{
+    display: none;
+}
+
+.table-dataincome table , 
+.table-dataexpend table,
+.table-high table,
+.table-low table,
+.table-nowhigh table,
+.table-nowlow table{
+    
+    width: 100%;
+}
+
+th, td {
+    padding: 10px;
+    text-align: center;
+}
+
+tr:nth-child(even){
+    background-color: #002A50;
+}
+
+th{
+    background-color: #243359;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.income {
+  color: #22c55e; /* hijau */
+}
+
+.expense {
+  color: #ef4444; /* merah */
+}
+
+.modal-overlay{
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.55);
+    display: none;                 /* default hidden */
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    padding: 20px;
+}
+
+.modal-overlay.active{
+    display: flex;
+}
+
+.modal-box{
+    width: min(720px, 95vw);
+    max-height: 90vh;
+    overflow: auto;
+    border-radius: 12px;
+}
+
+.section-add{
+    
+    margin-top: 0;      
+    width: 100%;        
+    border-radius: 10px;
+}
+
+.tittle-section{
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    background-color: #2A528A;
+    font-weight: 600;
+    font-size: 20px;
+    padding: 10px 10px; 
+}
+
+.section-form   {
+    background-color: #0D2242;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    padding: 20px 10px;
+}
+
+.section-form form{ 
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.form-group{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    font-weight: 400;
+    font-size: 15px;
+}
+
+.form-group input{
+    all: unset;
+    padding: 5px 10px;
+    border-radius: 10px;
+    border: 1px solid #285087;
+    background-color: #0B274E;
+}
+
+input::placeholder{
+    color: white;
+}
+
+.form-group select{
+    all: unset;
+    padding: 5px 10px;
+    border-radius: 10px;
+    border: 1px solid #285087;
+    background-color: #0B274E;
+}
+
+.button-sectionadd{
+    gap: 20px;
+    display: flex;
+}
+
+.button-addtransaksi{
+    background-color: #007BFF;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 15px;
+    border: none;
+    color: white;
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.button-close{
+    background-color: #DC3545;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 15px;
+    color: white;
+    width: 100%;
+    border: none;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    display: none;
+    -webkit-appearance: none;
+}
+
+.scroll-table::-webkit-scrollbar {
+  width: 8px;
+}
+
+.scroll-table::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.scroll-table::-webkit-scrollbar-thumb {
+  background: #4cc9f0;
+  border-radius: 10px;
+}
+
+.scroll-table::-webkit-scrollbar-button {
+  display: none;
+}
+
+
+
+
+
+
+/*ICON */
+.material-symbols-light--dashboard-rounded {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23fff' d='M14.305 9q-.345 0-.575-.23t-.23-.587V4.817q0-.357.234-.587t.58-.23h4.88q.347 0 .576.23t.23.587v3.366q0 .358-.234.587q-.234.23-.58.23zm-9.5 3q-.345 0-.575-.23T4 11.2V4.8q0-.34.234-.57t.58-.23h4.88q.347 0 .576.23t.23.57v6.4q0 .34-.234.57t-.58.23zm9.5 8q-.345 0-.575-.23t-.23-.57v-6.4q0-.34.234-.57t.58-.23h4.88q.347 0 .576.23t.23.57v6.4q0 .34-.234.57t-.58.23zm-9.5 0q-.345 0-.575-.23T4 19.183v-3.366q0-.357.234-.587t.58-.23h4.88q.347 0 .576.23t.23.587v3.366q0 .358-.234.587q-.234.23-.58.23z'/%3E%3C/svg%3E");
+}
+
+.material-symbols-light--table {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23fff' d='M11.5 14.885H4v3.5q0 .666.475 1.14t1.14.475H11.5zm1 0V20h5.885q.666 0 1.14-.475t.475-1.14v-3.5zm-1-1V8.769H4v5.116zm1 0H20V8.769h-7.5zM4 7.769h16V5.615q0-.666-.475-1.14T18.386 4H5.615q-.666 0-1.14.475T4 5.615z'/%3E%3C/svg%3E");
+}
+
+.icon-park-outline--down {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='4' d='M36 18L24 30L12 18'/%3E%3C/svg%3E");
+}

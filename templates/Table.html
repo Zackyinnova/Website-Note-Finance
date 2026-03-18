@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Pencatat pengeluaran</title>
+
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+        <!--Poppins-->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+        <!--Raleway-->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet"><body>
+    </head>
+
+    <body>
+
+        <!--Left side-->
+        <div class="Leftside">
+            <div class="Name-web">
+                <P>Spend Finance</P>
+                <span>Manage Your Finances</span>
+            </div>
+
+            <div class="Total-Spend">
+                <p>
+                    Total bulan ini:<br>
+                    Rp {{ "{:,.0f}".format(total_amount).replace(",", ".") }}
+                </p>
+            </div>
+
+            <div class="top-left">
+                <div class="Dashboard-table">
+                    <a href="/homepage">
+                        <span class="material-symbols-light--dashboard-rounded"></span>
+                        <p>Dashboard</p>
+                    </a>
+                </div>
+
+                <div class="database">
+                    <span class="material-symbols-light--table"></span>
+                    <p>Table Data</p>
+                </div>
+            </div>
+
+            <div class="down-left">
+
+            </div>
+        </div>
+
+        <div class="Rightside">
+            <div class="Tittle-section">
+                Table Tracker
+
+            </div>
+
+            <div class="nav-table">
+                <div class="all-transaksi" id="all-transaksi">
+                    <p>All Transaksi</p>
+                </div>
+
+                <div class="pengeluaran-tranksaksi" id="pengeluaran-tranksaksi">
+                    <p> Pengeluaran Transaksi</p>
+                </div>
+
+                <div class="pemasukan-transaksi" id="pemasukan-transaksi">
+                    <p> Pemasukan Transaksi</p>
+                </div>
+            </div>
+
+            <div class="Button-Help">
+                <div class="button-add">
+                    <button>Masukan Transaksi</button>
+                </div>
+
+                <div class="Filter-button" id="Filter-button">
+                    Filter Transaksi
+
+                    <span class="icon-park-outline--down"></span>
+                </div>
+            </div>
+            
+            <!--Overlay Filter-->
+            <div class="overlay-filter" id="overlay-filter">
+                <div class="box-filter" id="Filter-high">Amount : High To Low</div>
+                <div class="box-filter" id="Filter-low">Amount : Low To High</div>
+                <div class="box-filter" id="now-high">This Month : High To Low</div>
+                <div class="box-filter" id="now-low">This Month : Low To High</div>
+            </div>
+
+            <!-- Table -->
+            <div class="container-table">
+                <div class="scroll-table">
+                    <div class="table-data" id="table-data">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Note</th>
+                                    <th>Category</th>
+                                    <th>Type</th>
+                                    <th>Amount</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            {% if table_data and table_data|length > 0 %}
+                                {% for row in table_data %}
+                                <tr>
+                                    <td>{{ row.date_transaction }}</td>
+                                    <td>{{ row.desc_transcation }}</td>
+                                    <td>{{ row.catogory_transcation }}</td>
+                                    <td class="{{'income' if row.type_transaction == 'income' else 'expense'}}">
+                                        {{ row.type_transaction }}
+                                    </td>
+                                    <td>Rp {{ "{:,.0f}".format(row.amount_transcation) }}</td>
+                                </tr>
+                                {% endfor %}
+                            {% else %}
+                                <tr>
+                                <td colspan="5">Belum ada data</td>
+                                </tr>
+                            {% endif %}
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="table-dataincome" id="table-dataincome">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Note</th>
+                                    <th>Category</th>
+                                    <th>Type</th>
+                                    <th>Amount</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            {% if income_trans and income_trans|length > 0 %}
+                                {% for income in income_trans %}
+                                <tr>
+                                    <td>{{ income.date_transaction }}</td>
+                                    <td>{{ income.desc_transcation }}</td>
+                                    <td>{{ income.catogory_transcation }}</td>
+                                    <td class="{{'income' if income.type_transaction == 'income' else 'expense'}}">
+                                        {{ income.type_transaction }}
+                                    </td>
+                                    <td>Rp {{ "{:,.0f}".format(income.amount_transcation).replace(",", ".") }}</td>
+                                </tr>
+                                {% endfor %}
+                            {% else %}
+                                <tr>
+                                <td colspan="5">Belum ada data</td>
+                                </tr>
+                            {% endif %}
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="table-dataexpend" id="table-dataexpend">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Note</th>
+                                    <th>Category</th>
+                                    <th>Type</th>
+                                    <th>Amount</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            {% if expense_trans and expense_trans|length > 0 %}
+                                {% for expense in expense_trans %}
+                                <tr>
+                                    <td>{{ expense.date_transaction }}</td>
+                                    <td>{{ expense.desc_transcation }}</td>
+                                    <td>{{ expense.catogory_transcation }}</td>
+                                    <td class="{{'income' if expense.type_transaction == 'income' else 'expense'}}">
+                                        {{ expense.type_transaction }}
+                                    </td>
+                                    <td>Rp {{ "{:,.0f}".format(expense.amount_transcation).replace(",", ".") }}</td>
+                                </tr>
+                                {% endfor %}
+                            {% else %}
+                                <tr>
+                                <td colspan="5">Belum ada data</td>
+                                </tr>
+                            {% endif %}
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!--Table High To Low-->
+                    <div class="table-high" id="table-high">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Note</th>
+                                    <th>Category</th>
+                                    <th>Type</th>
+                                    <th>Amount</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            {% if Order_high and Order_high|length > 0 %}
+                                {% for High in Order_high %}
+                                <tr>
+                                    <td>{{ High.date_transaction }}</td>
+                                    <td>{{ High.desc_transcation }}</td>
+                                    <td>{{ High.catogory_transcation }}</td>
+                                    <td class="{{'income' if High.type_transaction == 'income' else 'expense'}}">
+                                        {{ High.type_transaction }}
+                                    </td>
+                                    <td>Rp {{ "{:,.0f}".format(High.amount_transcation).replace(",", ".") }}</td>
+                                </tr>
+                                {% endfor %}
+                            {% else %}
+                                <tr>
+                                <td colspan="5">Belum ada data</td>
+                                </tr>
+                            {% endif %}
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!--Table Low To High-->
+                    <div class="table-low" id="table-low">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Note</th>
+                                    <th>Category</th>
+                                    <th>Type</th>
+                                    <th>Amount</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            {% if Order_low and Order_low|length > 0 %}
+                                {% for low in Order_low %}
+                                <tr>
+                                    <td>{{ low.date_transaction }}</td>
+                                    <td>{{ low.desc_transcation }}</td>
+                                    <td>{{ low.catogory_transcation }}</td>
+                                    <td class="{{'income' if low.type_transaction == 'income' else 'expense'}}">
+                                        {{ low.type_transaction }}
+                                    </td>
+                                    <td>Rp {{ "{:,.0f}".format(low.amount_transcation).replace(",", ".") }}</td>
+                                </tr>
+                                {% endfor %}
+                            {% else %}
+                                <tr>
+                                <td colspan="5">Belum ada data</td>
+                                </tr>
+                            {% endif %}
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!--Table Low To High-->
+                    <div class="table-nowhigh" id="table-nowhigh">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Note</th>
+                                    <th>Category</th>
+                                    <th>Type</th>
+                                    <th>Amount</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            {% if now_high and now_high|length > 0 %}
+                                {% for nowHigh in now_high %}
+                                <tr>
+                                    <td>{{ nowHigh.date_transaction }}</td>
+                                    <td>{{ nowHigh.desc_transcation }}</td>
+                                    <td>{{ nowHigh.catogory_transcation }}</td>
+                                    <td class="{{'income' if nowHigh.type_transaction == 'income' else 'expense'}}">
+                                        {{ nowHigh.type_transaction }}
+                                    </td>
+                                    <td>Rp {{ "{:,.0f}".format(nowHigh.amount_transcation).replace(",", ".") }}</td>
+                                </tr>
+                                {% endfor %}
+                            {% else %}
+                                <tr>
+                                <td colspan="5">Belum ada data</td>
+                                </tr>
+                            {% endif %}
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!--Table This Month high To low-->
+                    <div class="table-nowlow" id="table-nowlow">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Note</th>
+                                    <th>Category</th>
+                                    <th>Type</th>
+                                    <th>Amount</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            {% if now_low and now_low|length > 0 %}
+                                {% for nowlow in now_low %}
+                                <tr>
+                                    <td>{{ nowlow.date_transaction }}</td>
+                                    <td>{{ nowlow.desc_transcation }}</td>
+                                    <td>{{ nowlow.catogory_transcation }}</td>
+                                    <td class="{{'income' if nowlow.type_transaction == 'income' else 'expense'}}">
+                                        {{ nowlow.type_transaction }}
+                                    </td>
+                                    <td>Rp {{ "{:,.0f}".format(nowlow.amount_transcation).replace(",", ".") }}</td>
+                                </tr>
+                                {% endfor %}
+                            {% else %}
+                                <tr>
+                                <td colspan="5">Belum ada data</td>
+                                </tr>
+                            {% endif %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+           
+
+            <!-- ===== MODAL OVERLAY ===== -->
+            <div class="modal-overlay" id="modalTransaksi">
+                <div class="modal-box">
+
+                    <!-- FORM KAMU -->
+                    <div class="section-add">
+                        <div class="tittle-section">
+                        Masukan Transaksi Baru
+                        </div>
+
+                        <div class="section-form">
+                            <form action="{{ url_for('submitnote') }}" method="post">
+
+                                <div class="form-group">
+                                <label>Transaction Type</label>
+                                    <select name="type_transaction" method="post">
+                                        <option value="" disabled selected hidden>Select transaction type</option>
+                                        <option value="income">Income</option>
+                                        <option value="expense">Expense</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Transaction Description</label>
+                                    <input type="text" placeholder="e.g. Lunch at McDonald's" name="desc_transcation" method="post" />
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Amount</label>
+                                    <input type="number" placeholder="Rp 0" name="amount_transcation" method="post" />
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Transaction Date</label>
+                                    <input type="date" name="date_transaction" method="post"/>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Select category</label>
+                                    <select name="catogory_transcation" method="post">
+                                        <option value="" disabled selected hidden>Select category</option>
+                                        <option value="food">Food</option>
+                                        <option value="transport">Transport</option>
+                                        <option value="rent">Rent</option>
+                                        <option value="Invest">Invest</option>
+                                    </select>
+                                </div>
+
+                                <div class="button-sectionadd">
+                                    <button type="submit" class="button-addtransaksi">Tambahkan Transaksi</button>
+                                    <button type="button" class="button-close">Cancel</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <script src="{{ url_for('static', filename='js/table.js') }}"></script>
+        
+    </body>
+</html>
