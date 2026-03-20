@@ -34,23 +34,31 @@
                 </p>
             </div>
 
-            <div class="top-left">
-                <div class="Dashboard">
-                    <span class="material-symbols-light--dashboard-rounded"></span>
-                    <p>Dashboard</p>
+            <div class="navbar-left">
+                <div class="top-left">
+                    <div class="Dashboard">
+                        <span class="material-symbols-light--dashboard-rounded"></span>
+                        <p>Dashboard</p>
+                    </div>
+
+                    <div class="database-index">
+                        <a href="{{ url_for('table') }}">
+                            <span class="material-symbols-light--table"></span>
+                            <p>Table Data</p>    
+                        </a>
+                    </div>
                 </div>
 
-                <div class="database-index">
-                    <a href="{{ url_for('table') }}">
-                        <span class="material-symbols-light--table"></span>
-                        <p>Table Data</p>    
-                    </a>
+                <div class="down-left">
+                    <div class="chatbot">
+                        <a href="{{ url_for('chatbot') }}">
+                            <span class="hugeicons--bot"></span>
+                            <p>Chat Bot</p>
+                        </a>
+                    </div>
                 </div>
             </div>
 
-            <div class="down-left">
-
-            </div>
         </div>
 
         <div class="Rightside-index">

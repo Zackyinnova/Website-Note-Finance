@@ -245,6 +245,26 @@ def get_cost_type():
 
     return rows
 
+@app.route('/chatbot')
+def chatbot():
+    cursor = db.cursor(dictionary=True)
+
+    cursor.execute("""
+        SELECT COALESCE(SUM(amount_transcation), 0) AS total
+        FROM submit_note
+        WHERE YEAR(date_transaction) = YEAR(CURDATE())
+          AND MONTH(date_transaction) = MONTH(CURDATE())
+    """)
+    result = cursor.fetchone()
+    total_amount = result["total"] if result and result["total"] is not None else 0
+
+    cursor.close()
+
+    return render_template(
+        'Chatbot.html',
+        total_amount = total_amount
+    )
+
 
 
 if __name__ == "__main__":

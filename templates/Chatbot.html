@@ -4,8 +4,71 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+        <!--Poppins-->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+        <!--Raleway-->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet"><body>
+
 </head>
-<body>
-    
-</body>
+    <body>
+
+        <!--Left side-->
+        <div class="Leftside">
+            <div class="Name-web">
+                <P>Spend Finance</P>
+                <span>Manage Your Finances</span>
+            </div>
+
+
+            <div class="Total-Spend">
+                <p>
+                    Total bulan ini:<br>
+                    Rp {{ "{:,.0f}".format(total_amount).replace(",", ".") }}
+                </p>
+            </div>
+            
+            <div class="navbar-left">
+                <div class="top-left">
+                    <div class="Dashboard-table">
+                        <a href="/homepage">
+                            <span class="material-symbols-light--dashboard-rounded"></span>
+                            <p>Dashboard</p>
+                        </a>
+                    </div>
+
+                    <div class="database-index">
+                        <a href="{{ url_for('table') }}">
+                            <span class="material-symbols-light--table"></span>
+                            <p>Table Data</p>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="down-left">
+                    <div class="chatbot-page">
+                        <a href="/chatbot">
+                            <span class="hugeicons--bot"></span>
+                            <p>Chat Bot</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="Rightside">
+ 
+        </div>
+
+
+        <script src="{{ url_for('static', filename='js/table.js') }}"></script>
+        
+    </body>
 </html>
