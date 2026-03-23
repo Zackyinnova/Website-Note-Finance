@@ -1,5 +1,7 @@
 import mysql.connector
 from datetime import datetime
+from flask import Flask, render_template, request, jsonify
+from Chatbot import get_chatbot_response
 from flask import Flask, render_template, request, redirect, url_for, jsonify
 
 app = Flask(__name__)
@@ -264,6 +266,16 @@ def chatbot():
         'Chatbot.html',
         total_amount = total_amount
     )
+
+@app.route("/chatbot")
+def chatbot_page():
+    return render_template("Chatbot.html")
+
+@app.route("/chatbot-api", methods=["POST"])
+def chatbot_api():
+    user_input = request.json["message"]
+    response = get_chatbot_response(user_input)
+    return jsonify({"reply": response})
 
 
 

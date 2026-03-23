@@ -64,11 +64,16 @@
         </div>
 
         <div class="Rightside">
+            <h2>Chatbot Finance 💰</h2>
+
+            <div id="chatbox" style="height:300px; overflow:auto; border:1px solid white;"></div>
+
+            <input type="text" id="userInput" placeholder="Ketik pesan...">
+            <button onclick="sendMessage()">Kirim</button>
  
         </div>
 
-
-        <script src="{{ url_for('static', filename='js/table.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/chatbot.js') }}"></script>
         
     </body>
 </html>

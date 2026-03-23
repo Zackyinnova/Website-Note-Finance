@@ -44,7 +44,7 @@ flows = {
         "deposito": {
             "response": "Kami menyarankan bank seperti BCA, Mandiri, BNI, atau BRI."
         },
-        "reksa": {
+        "reksa dana": {
             "response": "Reksa dana pasar uang cocok untuk risiko rendah."
         }
     },
@@ -77,9 +77,9 @@ flows = {
 context = None
 
 # =========================
-# CHATBOT
+# CHATBOT FUNCTION (UNTUK FLASK)
 # =========================
-def chatbot(user_input, threshold=0.3):
+def get_chatbot_response(user_input, threshold=0.3):
     global context
     user_input = user_input.lower()
 
@@ -114,17 +114,3 @@ def chatbot(user_input, threshold=0.3):
         return "Maaf, saya belum mengerti."
 
     return df.iloc[best_index]["answer"]
-
-# =========================
-# LOOP
-# =========================
-print("Chatbot siap! (ketik exit untuk keluar)\n")
-
-while True:
-    user = input("Anda: ")
-
-    if user.lower() == "exit":
-        print("Chatbot: Terima kasih! 👋")
-        break
-
-    print("Chatbot:", chatbot(user))
