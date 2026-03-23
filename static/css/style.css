@@ -510,6 +510,12 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   display: none;
 }
 
+.chatbot-box{
+    height:300px;
+    overflow:auto; 
+    border:1px solid white;
+}
+
 
 
 
