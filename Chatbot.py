@@ -46,6 +46,14 @@ flows = {
         },
         "reksa dana": {
             "response": "Reksa dana pasar uang cocok untuk risiko rendah."
+        },
+        "menengah":{
+            "next" : "investasi_menengah",
+            "response" :"Untuk jangka menengah, kamu bisa pilih obligasi, emas, atau saham bluechip."
+        },
+        "panjang": {
+            "next": "investasi_panjang",
+            "response": "Untuk jangka panjang, kamu bisa pilih saham besar, reksa dana saham, atau crypto."
         }
     },
 
@@ -58,6 +66,14 @@ flows = {
         },
         "saham": {
             "response": "Saham bluechip seperti BBCA, BBRI, BMRI cocok."
+        },
+        "pendek": {
+            "next": "investasi_pendek",
+            "response": "Untuk jangka pendek, kamu bisa pilih deposito atau reksa dana pasar uang."
+        },
+        "panjang": {
+            "next": "investasi_panjang",
+            "response": "Untuk jangka panjang, kamu bisa pilih saham besar, reksa dana saham, atau crypto."
         }
     },
 
@@ -67,6 +83,14 @@ flows = {
         },
         "crypto": {
             "response": "Bitcoin dan Ethereum adalah pilihan populer."
+        },
+        "pendek": {
+            "next": "investasi_pendek",
+            "response": "Untuk jangka pendek, kamu bisa pilih deposito atau reksa dana pasar uang."
+        },
+        "menengah":{
+            "next" : "investasi_menengah",
+            "response" :"Untuk jangka menengah, kamu bisa pilih obligasi, emas, atau saham bluechip."
         }
     }
 }

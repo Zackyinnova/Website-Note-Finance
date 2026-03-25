@@ -30,7 +30,7 @@
 
             <div class="Total-Spend">
                 <p>
-                    Total bulan ini:<br>
+                    Total This Month:<br>
                     Rp {{ "{:,.0f}".format(total_amount).replace(",", ".") }}
                 </p>
             </div>
@@ -40,14 +40,14 @@
                     <div class="Dashboard-table">
                         <a href="/homepage">
                             <span class="material-symbols-light--dashboard-rounded"></span>
-                            <p>Dashboard</p>
+                            <p>Spending Analytics</p>
                         </a>
                     </div>
 
                     <div class="database-index">
                         <a href="{{ url_for('table') }}">
                             <span class="material-symbols-light--table"></span>
-                            <p>Table Data</p>
+                            <p>Transactions</p>
                         </a>
                     </div>
                 </div>
@@ -56,7 +56,7 @@
                     <div class="chatbot-page">
                         <a href="/chatbot">
                             <span class="hugeicons--bot"></span>
-                            <p>Chat Bot</p>
+                            <p>Chatbot</p>
                         </a>
                     </div>
                 </div>
@@ -65,15 +65,15 @@
 
         <div class="Rightside">
             <div class="Tittle-section">
-                <p>Chatbot Finance</p>
+                <p>AI Financial Assistant</p>
             </div>
 
             <div id="chatbox" class="chatbot-box">
             </div>
 
             <div class="form-chatbot">
-                <input type="text" class="form-question" id="userInput" placeholder="Ketik pesan...">
-                <button onclick="sendMessage()">Kirim</button>
+                <input type="text" class="form-question" id="userInput" placeholder="Ask about your finances or investments...">
+                <button onclick="sendMessage()">Send</button>
             </div>
  
         </div>

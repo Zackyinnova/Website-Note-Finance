@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         data: {
           labels: chartLabels,
           datasets: [{
-            label: "Expense 5 Bulan Terakhir",
+            label: "Income (Last 5 Months)",
             data: chartValues,
             borderColor: "#4cc9f0", 
             backgroundColor: "rgba(76, 201, 240, 0.1)",
@@ -146,7 +146,7 @@ document.addEventListener("DOMContentLoaded", async () => {
           data: {
             labels: categoryType,
             datasets: [{
-              label: "Expense Bulan Ini",
+              label: "Expenses (Last 5 Months)",
               data: amountMonth,
               borderWidth: 2
             }]

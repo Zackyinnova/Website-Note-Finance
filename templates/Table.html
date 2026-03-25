@@ -29,7 +29,7 @@
 
             <div class="Total-Spend">
                 <p>
-                    Total bulan ini:<br>
+                    Total This Month:<br>
                     Rp {{ "{:,.0f}".format(total_amount).replace(",", ".") }}
                 </p>
             </div>
@@ -39,13 +39,13 @@
                     <div class="Dashboard-table">
                         <a href="/homepage">
                             <span class="material-symbols-light--dashboard-rounded"></span>
-                            <p>Dashboard</p>
+                            <p>Spending Analytics</p>
                         </a>
                     </div>
 
                     <div class="database">
                         <span class="material-symbols-light--table"></span>
-                        <p>Table Data</p>
+                        <p>Transactions</p>
                     </div>
                 </div>
 
@@ -53,7 +53,7 @@
                     <div class="chatbot">
                         <a href="{{ url_for('chatbot') }}">
                             <span class="hugeicons--bot"></span>
-                            <p>Chat Bot</p>
+                            <p>Chatbot</p>
                         </a>
                     </div>
                 </div>
@@ -62,31 +62,31 @@
 
         <div class="Rightside">
             <div class="Tittle-section">
-                Table Tracker
+                Transaction Tracker
 
             </div>
 
             <div class="nav-table">
                 <div class="all-transaksi" id="all-transaksi">
-                    <p>All Transaksi</p>
+                    <p>All Transactions</p>
                 </div>
 
                 <div class="pengeluaran-tranksaksi" id="pengeluaran-tranksaksi">
-                    <p> Pengeluaran Transaksi</p>
+                    <p> Expenses</p>
                 </div>
 
                 <div class="pemasukan-transaksi" id="pemasukan-transaksi">
-                    <p> Pemasukan Transaksi</p>
+                    <p> Income</p>
                 </div>
             </div>
 
             <div class="Button-Help">
                 <div class="button-add">
-                    <button>Masukan Transaksi</button>
+                    <button>Add Transaction</button>
                 </div>
 
                 <div class="Filter-button" id="Filter-button">
-                    Filter Transaksi
+                    Filter Transactions
 
                     <span class="icon-park-outline--down"></span>
                 </div>
@@ -94,10 +94,10 @@
             
             <!--Overlay Filter-->
             <div class="overlay-filter" id="overlay-filter">
-                <div class="box-filter" id="Filter-high">Amount : High To Low</div>
-                <div class="box-filter" id="Filter-low">Amount : Low To High</div>
-                <div class="box-filter" id="now-high">This Month : High To Low</div>
-                <div class="box-filter" id="now-low">This Month : Low To High</div>
+                <div class="box-filter" id="Filter-high">Amount (High To Low)</div>
+                <div class="box-filter" id="Filter-low">Amount (Low To High)</div>
+                <div class="box-filter" id="now-high">This Month (High To Low)</div>
+                <div class="box-filter" id="now-low">This Month (Low To High)</div>
             </div>
 
             <!-- Table -->
@@ -108,7 +108,7 @@
                             <thead>
                                 <tr>
                                     <th>Date</th>
-                                    <th>Note</th>
+                                    <th>Description </th>
                                     <th>Category</th>
                                     <th>Type</th>
                                     <th>Amount</th>
@@ -141,7 +141,7 @@
                             <thead>
                                 <tr>
                                     <th>Date</th>
-                                    <th>Note</th>
+                                    <th>Description </th>
                                     <th>Category</th>
                                     <th>Type</th>
                                     <th>Amount</th>
@@ -174,7 +174,7 @@
                             <thead>
                                 <tr>
                                     <th>Date</th>
-                                    <th>Note</th>
+                                    <th>Description </th>
                                     <th>Category</th>
                                     <th>Type</th>
                                     <th>Amount</th>
@@ -208,7 +208,7 @@
                             <thead>
                                 <tr>
                                     <th>Date</th>
-                                    <th>Note</th>
+                                    <th>Description </th>
                                     <th>Category</th>
                                     <th>Type</th>
                                     <th>Amount</th>
@@ -242,7 +242,7 @@
                             <thead>
                                 <tr>
                                     <th>Date</th>
-                                    <th>Note</th>
+                                    <th>Description </th>
                                     <th>Category</th>
                                     <th>Type</th>
                                     <th>Amount</th>
@@ -276,7 +276,7 @@
                             <thead>
                                 <tr>
                                     <th>Date</th>
-                                    <th>Note</th>
+                                    <th>Description </th>
                                     <th>Category</th>
                                     <th>Type</th>
                                     <th>Amount</th>
@@ -310,7 +310,7 @@
                             <thead>
                                 <tr>
                                     <th>Date</th>
-                                    <th>Note</th>
+                                    <th>Description </th>
                                     <th>Category</th>
                                     <th>Type</th>
                                     <th>Amount</th>
@@ -358,8 +358,8 @@
                                 <label>Transaction Type</label>
                                     <select name="type_transaction" method="post">
                                         <option value="" disabled selected hidden>Select transaction type</option>
-                                        <option value="income">Income</option>
-                                        <option value="expense">Expense</option>
+                                        <option value="Income">Income</option>
+                                        <option value="Expense">Expense</option>
                                     </select>
                                 </div>
 
@@ -382,10 +382,10 @@
                                     <label>Select category</label>
                                     <select name="catogory_transcation" method="post">
                                         <option value="" disabled selected hidden>Select category</option>
-                                        <option value="food">Food</option>
-                                        <option value="transport">Transport</option>
-                                        <option value="rent">Rent</option>
-                                        <option value="Invest">Invest</option>
+                                        <option value="Food">Food</option>
+                                        <option value="Transport">Transport</option>
+                                        <option value="Rent">Rent</option>
+                                        <option value="Invest">Investment</option>
                                     </select>
                                 </div>
 
