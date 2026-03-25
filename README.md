@@ -9,6 +9,7 @@ a. Tech Stack
 - Backend: Python
 - Database: MySQL
 - Visualization: JavaScript (Chart.js )
+- Chatbot : python ( TF-idf and consine similarity)
 
 b. Key Features
 - Dashboard overview of financial data
@@ -17,3 +18,4 @@ b. Key Features
 - Transaction management system
 - Filtering and sorting transactions
 - Clean dark UI
+- chatbot for asking the question about investing
