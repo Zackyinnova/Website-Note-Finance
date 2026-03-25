@@ -511,9 +511,40 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 
 .chatbot-box{
-    height:300px;
+    height: 80%;
     overflow:auto; 
-    border:1px solid white;
+    background-color: #101F3D;
+    border: 1px solid #243359;
+    border-radius: 10px;
+    padding: 10px 10px;
+    margin-top: 10px;
+}
+
+.form-chatbot{
+    margin-top: 10px ;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+
+.form-question{
+    all: unset;
+    padding: 5px 10px;
+    width: 92%;
+    height: 30px;
+    border: 1px solid #285087;
+    background-color: #0B274E;
+    border-radius: 4px;
+}
+
+.form-chatbot button{
+    all: unset;
+    width: 8%;
+    height: 40px;
+    background-color: #007BFF;
+    text-align: center;
+    border-radius: 4px;
 }
 
 
