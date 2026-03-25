@@ -547,6 +547,35 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     border-radius: 4px;
 }
 
+.chat-row {
+    display: flex;
+    margin: 5px;
+}
+
+.user {
+    justify-content: flex-end;
+}
+
+.bot {
+    justify-content: flex-start;
+}
+
+.bubble {
+    padding: 10px 15px;
+    border-radius: 15px;
+    max-width: 60%;
+}
+
+.user-bubble {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.bot-bubble {
+    background-color: #eee;
+    color: black;
+}
+
 
 
 

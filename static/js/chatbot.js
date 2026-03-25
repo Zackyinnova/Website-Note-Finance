@@ -14,8 +14,23 @@ function sendMessage() {
     .then(data => {
         let chatbox = document.getElementById("chatbox");
 
-        chatbox.innerHTML += `<p><b>Anda:</b> ${input}</p>`;
-        chatbox.innerHTML += `<p><b>Bot:</b> ${data.reply}</p>`;
+    // untuk pertanyaan
+    chatbox.innerHTML += `
+        <div class="chat-row user">
+            <div class="bubble user-bubble">
+                ${input}
+            </div>
+        </div>
+    `;
+
+    //untuk jawaban 
+    chatbox.innerHTML += `
+        <div class="chat-row bot">
+            <div class="bubble bot-bubble">
+                ${data.reply}
+            </div>
+        </div>
+    `;
 
         chatbox.scrollTop = chatbox.scrollHeight;
     })
